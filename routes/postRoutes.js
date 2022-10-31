@@ -11,4 +11,14 @@ router
 
 router.route("/:id").get(postControllers.getPostById);
 
+router.route("/").delete(postControllers.deleteUser);
+
+router.route("/").put(postControllers.updateUser);
+
 module.exports = router;
+
+
+
+
+
+

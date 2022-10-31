@@ -31,4 +31,32 @@ exports.createNewPost = async (req, res, next) => {
     console.log(error);
     next(error);
   }
+
+};
+
+exports.deleteUser = async (req, res, next) => {
+  try {
+    let { id } = req.body;
+    
+    post = await Post.deleteUser(id);
+
+    res.status(203).json({ message: "User deleted" });
+  } catch (error) {
+    console.log(error);
+
+    next(error);
+  }
+};
+
+exports.updateUser = async (req, res, next) => {
+  try{
+    let { title, body, id } = req.body;
+
+    post = await Post.updateUser(title, body, id);
+
+    res.status(203).json({message: "User updated"});
+  } catch (error){
+    console.log(error);
+    next(error);
+  }
 };

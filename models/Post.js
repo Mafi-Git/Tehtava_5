@@ -28,6 +28,19 @@ class Post {
     let sql = `SELECT * FROM posts WHERE id=${id}`;
     return db.execute(sql);
   }
+
+  static deleteUser(id) {
+    let sql = `DELETE FROM posts WHERE id=${id}`;
+
+    return db.execute(sql);
+  }
+
+  static updateUser(title, body, id) {
+    let sql = `UPDATE posts SET title = '${title}', body = '${body}' WHERE id = ${id}`;
+
+    return db.execute(sql);
+  }
+
 }
 
 module.exports = Post;
